@@ -87,14 +87,22 @@ if ($_SESSION['auth'] > 0) {
 &nbsp;
 </div>
 <div style="display: table-cell; width: 750px; text-align: left;">
-<div id="image_add" class="textarea_click" onclick="insertAtCaret('reply_thread', '[IMG]www.example.com/URL_OF_IMAGE.png[/IMG]')">IMG</div>
-<div id="url_add" class="textarea_click" onclick="insertAtCaret('reply_thread', '[LINK=www.google.com]Link[/LINK]')">LINK</div>
+<div id="image_add" class="textarea_click" onclick="bbcode('IMG')" onmouseover="cursor_up(this)" onmouseout="cursor_down(this)">IMG</div>
+<div id="url_add" class="textarea_click" onmouseover="cursor_up(this)" onmouseout="cursor_down(this)" onclick="bbcode('LINK')">LINK</div>
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 Reply:<br />
 <textarea id="reply_thread" name="message_for_reply" style="width: 95%; height: 200px;"></textarea><br />
 <input type="submit" value="Reply" name="reply_thread">
 </form>
 <script>
+function cursor_up(elem) {
+	elem.style.cursor = "pointer";
+}
+
+function cursor_down(elem) {
+	elem.style.cursor = "auto";
+}
+
 function getCaret(id) {
 	var elem = document.getElementById(id);
 	if (elem.selectionStart) {
@@ -106,6 +114,13 @@ function insertAtCaret(id, text) {
 	var before = elem.substr(0, getCaret(id));
 	var after = elem.substr(getCaret(id));
 	document.getElementById(id).value = elem.substr(0, getCaret(id)) + text + elem.substr(getCaret(id));
+}
+function bbcode(str) {
+	if (str == "IMG") {
+		insertAtCaret('reply_thread', '[IMG]www.example.com/URL_OF_IMAGE.png[/IMG]');
+	} else if (str == "LINK") {
+		insertAtCaret('reply_thread', '[LINK="www.example.com"]www.google.com/URL_OF_IMAGE.png[/IMG]');
+	}
 }
 </script>
 </div>

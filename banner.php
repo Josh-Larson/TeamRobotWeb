@@ -2,10 +2,13 @@
 function login_keep_fields() {
 	var user = document.getElementById("user_login");
 	var pass = document.getElementById("pass_login");
-	
 }
 </script>
 <div id="banner_container">
+<div id="banner_img_container">
+<img src="robot_icon.png" style="border: solid 0px; height: 150px;" />
+</div>
+<div id="navigation_container">
 <div id="login_form">
 <?php
 if ($_SESSION['auth'] == 0) {
@@ -14,7 +17,7 @@ if ($_SESSION['auth'] == 0) {
 <input type="hidden" value="Yes" name="login_form">
 <input type="text" value="Email Address" name="user" id="user" style="font-size: 13px; width: 140px;">
 <input type="password" value="Password" name="pass" id="pass" style="font-size: 13px; width: 140px;">
-<input type="submit" value="Login"> &nbsp;<a style="font-size: 12px;" href="createAccount.php">Create Account</a>
+<input type="submit" value="Login"> &nbsp;<a style="font-size: 13px;" href="createAccount.php">Create Account</a>
 </form>
 <?php
 } else {
@@ -60,6 +63,7 @@ if ($_SESSION['auth'] == 0) {
 
 </tr>
 </table>
-</div>
+</div> <!-- navigation -->
+</div> <!-- navigation_container -->
 </div> <!-- banner_container -->
 

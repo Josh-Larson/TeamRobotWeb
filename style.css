@@ -12,20 +12,19 @@ body {
 
 #banner_container {
 	width: 900px;
-	height: 30px;
+	height: 150px;
 	position: relative;
 	border-bottom: solid 1px;
 	text-align: left;
 	/*background-color: rgba(225, 225, 0, .75);*/
-	background-color: rgba(240, 240, 240, 1);
+	/*background-color: rgba(255, 255, 255, 1);*/
+	color: #FFFFFF;
 	padding-top: 2px;
 	padding-left: 2px;
 }
 
 #login_form {
-	position: absolute;
-	top: 0px;
-	right: 5px;
+	float: right;
 	padding: 3px;
 	border-left: solid 1px;
 	text-align: right;
@@ -41,10 +40,17 @@ body {
 	border-bottom: solid 0px;
 }
 
-#navigation {
+#navigation_container {
 	position: absolute;
-	left: 5px;
-	top: 0px;
+	right: 5px;
+	bottom: 0px;
+	height: 30px;
+	width: 100%;
+	background-color: #000000;
+}
+
+#navigation {
+	float: left;
 	height: 30px;
 }
 
@@ -76,4 +82,10 @@ image {
 	width: 40px;
 	text-align: center;
 	border: solid 1px;
+	display: table-cell;
 }
+
+a:link {color:#FFFFFF;}      /* unvisited link */
+a:visited {color:#FFFFFF;}  /* visited link */
+a:hover {color:#FFFFFF;}  /* mouse over link */
+a:active {color:#FFFFFF;}  /* selected link */ 
